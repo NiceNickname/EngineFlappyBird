@@ -1,0 +1,19 @@
+#version 330 core
+
+out vec4 color;
+in vec2 v_TexCoord;
+uniform int top;
+
+uniform sampler2D tex;
+
+void main() 
+{
+	vec2 TexCoord;
+	if (top == 1) {
+		TexCoord = vec2(v_TexCoord.x, 1.0 - v_TexCoord.y);
+	}
+	else {
+		TexCoord = v_TexCoord;
+	}
+	color = texture(tex, TexCoord);
+}
